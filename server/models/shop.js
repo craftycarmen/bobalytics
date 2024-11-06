@@ -22,11 +22,11 @@ const ShopSchema = Schema({
             default: 'Point'
         },
         lat: {
-            type: [Number],
+            type: Number,
             required: false
         },
         lng: {
-            type: [Number],
+            type: Number,
             required: false
         },
         city: {

@@ -12,15 +12,16 @@ const usersData = [
             city: 'Oakland',
             state: 'CA',
         },
-        shopId: 1
+        shops: []
     }
 ]
 
 const userSeeder = async () => {
     try {
         await User.deleteMany({});
-        await User.insertMany(usersData);
+        const users = await User.insertMany(usersData);
         console.log('User data seeded successfully');
+        return users;
     } catch (error) {
         console.error('Error seeding user data:', error)
     }
