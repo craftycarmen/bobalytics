@@ -29,14 +29,14 @@ const UserSchema = Schema({
         type: {
             type: String,
             enum: ['Point'],
-            required: false
+            default: 'Point'
         },
         lat: {
-            type: [Number],
+            type: Number,
             required: false
         },
         lng: {
-            type: [Number],
+            type: Number,
             required: false
         },
         city: {
@@ -56,10 +56,6 @@ const UserSchema = Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Shop'
     }],
-    verified: {
-        type: Boolean,
-        default: false
-    },
     createdAt: {
         type: Date,
         default: Date.now
