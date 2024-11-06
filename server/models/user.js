@@ -31,7 +31,11 @@ const UserSchema = Schema({
             enum: ['Point'],
             required: false
         },
-        coordinates: {
+        lat: {
+            type: [Number],
+            required: false
+        },
+        lng: {
             type: [Number],
             required: false
         },

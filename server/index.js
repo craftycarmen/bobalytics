@@ -16,7 +16,7 @@ app.get('/test', (_, res) => res.send("This works"));
 
 app.use('/api/users', users)
 
-const port = 3000;
+const port = 8080;
 const callback = () => console.log(`Server is running on port: ${port}`);
 
 app.listen(port, callback);
