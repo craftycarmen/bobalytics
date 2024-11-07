@@ -1,51 +1,38 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
+import globals from 'globals';
+import eslintPluginReact from 'eslint-plugin-react';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
-    env: {
-      browser: true,
-      es2020: true,
-      node: true
-    },
+    files: ['**/*.{js,mjs,cjs,jsx}'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
         ecmaFeatures: {
-          jsx: true
+          jsx: true,
         },
       },
       globals: {
         ...globals.browser,
-        ...globals.node
+        ...globals.node,
       },
     },
     settings: {
       react: {
-        version: "18.2",
+        version: '18.2',
       },
     },
-    extends: [
-      "eslint: recommend",
-      pluginJs.configs.recommended,
-      pluginReact.configs.recommended,
-      "plugin:react-hooks/recommended",
-    ],
-    plugins: ["react"],
+    plugins: {
+      react: eslintPluginReact,
+    },
     rules: {
-      "react/prop-types": "off",
+      'react/prop-types': 'off',
     },
-    overrides: [
-      {
-        files: ["src/contet/*.jsx"],
-        rules: {
-          "react/prop-types": "off",
-        },
-      },
-    ],
+  },
+  {
+    files: ['src/content/*.jsx'],
+    rules: {
+      'react/prop-types': 'off',
+    },
   },
 ];
