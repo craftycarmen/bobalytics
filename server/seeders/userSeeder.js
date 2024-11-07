@@ -1,5 +1,6 @@
 import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
+import { ADMIN } from "../config/keys.js";
 
 const usersData = [
     {
@@ -13,7 +14,19 @@ const usersData = [
             state: 'CA',
         },
         shops: []
-    }
+    },
+    {
+        firstName: 'Admin',
+        lastName: 'User',
+        email: 'admin@email.com',
+        password: bcrypt.hashSync(ADMIN, 10),
+        phoneNumber: '5109876543',
+        location: {
+            city: 'Oakland',
+            state: 'CA',
+        },
+        role: "Admin"
+    },
 ]
 
 const userSeeder = async () => {
